@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather app</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/style.css' %}"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    
+
+    <div class="container">
+      <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="Enter City" />
+        <button type="submit" class="btn">Enter</button>
+      </form>
+      <div class="weather">
+        <div class="left">
+          <h2>{{temp}} &deg;</h2>
+          <h3>{{city}}</h3>
+        </div>
+        <div class="right">
+          <div class="icon">
+            <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="" />
+          </div>
+          <div class="condition">
+            <p>{{descp}}</p>
+            <p>{{date}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+</html>
